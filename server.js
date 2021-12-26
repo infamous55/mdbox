@@ -10,7 +10,7 @@ app.use(express.json());
 app.use(cors());
 const uploadSingleFile = require('./upload');
 
-app.use(express.static(path.resolve(__dirname, './frontend/build')));
+app.use(express.static(path.join(__dirname, 'frontend/build')));
 
 app.post('/upload', (req, res) => {
   uploadSingleFile(req, res, (err) => {
@@ -53,6 +53,10 @@ app.post('/download', (req, res) => {
   } else {
     res.json({ success: false, error: 'Valid data is required.' });
   }
+});
+
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname + '/frontend/build/index.html'));
 });
 
 app.listen(5000, () => {
