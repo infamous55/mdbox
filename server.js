@@ -63,5 +63,5 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`App is listening on port ${PORT}`);
-  fs.mkdir('/tmp/files');
+  fs.mkdirSync('/tmp/files');
 });
