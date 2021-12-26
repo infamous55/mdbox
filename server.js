@@ -19,11 +19,11 @@ app.post('/upload', (req, res) => {
 
     try {
       const fileContents = fs.readFileSync(
-        `./files/${req.file.filename}`,
+        `/tmp/files/${req.file.filename}`,
         'utf-8'
       );
       const { content } = parseMD(fileContents);
-      fs.unlinkSync(`./files/${req.file.filename}`);
+      fs.unlinkSync(`/tmp/files/${req.file.filename}`);
 
       res.json({ success: true, content });
     } catch (error) {
@@ -34,7 +34,7 @@ app.post('/upload', (req, res) => {
 
 app.post('/download', (req, res) => {
   if (typeof req.body.data === 'string') {
-    const filePath = `./files/${uuid.v4()}.md`;
+    const filePath = `/tmp/files/${uuid.v4()}.md`;
 
     fs.writeFile(filePath, req.body.data, (err) => {
       if (err) {
@@ -63,4 +63,5 @@ const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
   console.log(`App is listening on port ${PORT}`);
+  fs.mkdir('/tmp/files');
 });
