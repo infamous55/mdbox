@@ -23,12 +23,12 @@ function Home() {
           Project built using React and Chakra UI, by infamous55.
         </Text>
         <Stack spacing={10} direction={['column', 'row']}>
-          <Link href={'https://github.com'}>
+          <Link href={'https://github.com/infamous55/mdbox'}>
             <Button leftIcon={<FaGithub />} size={'lg'} variant={'outline'}>
               Source Code
             </Button>
           </Link>
-          <Link href={'https://infamous55.com'}>
+          <Link href={'https://infamous55.com/'}>
             <Button
               leftIcon={<FaExternalLinkSquareAlt />}
               size={'lg'}

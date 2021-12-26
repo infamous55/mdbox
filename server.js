@@ -3,11 +3,14 @@ const cors = require('cors');
 const parseMD = require('parse-md').default;
 const uuid = require('uuid');
 const fs = require('fs');
+const path = require('path');
 
 const app = express();
 app.use(express.json());
 app.use(cors());
 const uploadSingleFile = require('./upload');
+
+app.use(express.static(path.resolve(__dirname, './frontend/build')));
 
 app.post('/upload', (req, res) => {
   uploadSingleFile(req, res, (err) => {
@@ -53,5 +56,5 @@ app.post('/download', (req, res) => {
 });
 
 app.listen(5000, () => {
-  console.log('It works!');
+  console.log('App is listening on port 5000!');
 });
