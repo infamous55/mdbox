@@ -62,6 +62,6 @@ app.get('*', (req, res) => {
 const PORT = process.env.PORT || 5000;
 
 app.listen(PORT, () => {
-  console.log(`App is listening on port ${PORT}`);
-  fs.mkdirSync('/tmp/files');
+  console.log(`App listening on port ${PORT}`);
+  if (!fs.existsSync('/tmp/files')) fs.mkdirSync('/tmp/files');
 });

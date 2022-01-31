@@ -34,7 +34,7 @@ function Home() {
               size={'lg'}
               variant={'outline'}
             >
-              Personal Blog
+              Personal Site
             </Button>
           </Link>
         </Stack>

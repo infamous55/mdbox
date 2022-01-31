@@ -38,11 +38,7 @@ function About() {
             >
               GitHub
             </Link>
-            . There is also a{' '}
-            <Link href={'https://infamous55.com/'} color={'#FF0080'}>
-              blog post
-            </Link>{' '}
-            explaining all the implementation details.
+            .
           </Text>
         </Container>
       </Flex>
